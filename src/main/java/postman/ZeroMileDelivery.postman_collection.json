@@ -32,7 +32,53 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				 {
+        "id": 1,
+        "customerName": "John",
+        "deliveryAddress": "123 Main St",
+        "contactNumber": "555-123-4567",
+        "parcelSize": "SMALL",
+        "parcelWeight": 1.0,
+        "trackingNumber": "78fa762d-2fa7-4ccc-af76-2d1dd92daad1"
+    },
+    {
+        "id": 2,
+        "customerName": "Tobey",
+        "deliveryAddress": "Gotham city",
+        "contactNumber": "555-231-5674",
+        "parcelSize": "SMALL",
+        "parcelWeight": 1.5,
+        "trackingNumber": "d1967e30-0ee6-4fc1-b8ca-689b7723d7c1"
+    },
+    {
+        "id": 3,
+        "customerName": "Sam",
+        "deliveryAddress": "Churchhill Road",
+        "contactNumber": "555-312-6745",
+        "parcelSize": "MEDIUM",
+        "parcelWeight": 2.0,
+        "trackingNumber": "80c681d2-03ee-4836-88fa-03c1d8abea74"
+    },
+    {
+        "id": 4,
+        "customerName": "Peter",
+        "deliveryAddress": "Lighthouse Road",
+        "contactNumber": "555-132-7456",
+        "parcelSize": "MEDIUM",
+        "parcelWeight": 2.5,
+        "trackingNumber": "c99d0862-f2c7-440b-be92-7f3b3851aaeb"
+    },
+    {
+        "id": 5,
+        "customerName": "Allen",
+        "deliveryAddress": "Hollywood Street",
+        "contactNumber": "555-321-4567",
+        "parcelSize": "LARGE",
+        "parcelWeight": 3.0,
+        "trackingNumber": "49270329-3d9c-4729-8189-a62db8be731f"
+    }
+			]
 		},
 		{
 			"name": "http://localhost:8080/api/parcels/getAll",
@@ -53,7 +99,53 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+        "id": 1,
+        "customerName": "John",
+        "deliveryAddress": "123 Main St",
+        "contactNumber": "555-123-4567",
+        "parcelSize": "SMALL",
+        "parcelWeight": 1.0,
+        "trackingNumber": "78fa762d-2fa7-4ccc-af76-2d1dd92daad1"
+    },
+    {
+        "id": 2,
+        "customerName": "Tobey",
+        "deliveryAddress": "Gotham city",
+        "contactNumber": "555-231-5674",
+        "parcelSize": "SMALL",
+        "parcelWeight": 1.5,
+        "trackingNumber": "d1967e30-0ee6-4fc1-b8ca-689b7723d7c1"
+    },
+    {
+        "id": 3,
+        "customerName": "Sam",
+        "deliveryAddress": "Churchhill Road",
+        "contactNumber": "555-312-6745",
+        "parcelSize": "MEDIUM",
+        "parcelWeight": 2.0,
+        "trackingNumber": "80c681d2-03ee-4836-88fa-03c1d8abea74"
+    },
+    {
+        "id": 4,
+        "customerName": "Peter",
+        "deliveryAddress": "Lighthouse Road",
+        "contactNumber": "555-132-7456",
+        "parcelSize": "MEDIUM",
+        "parcelWeight": 2.5,
+        "trackingNumber": "c99d0862-f2c7-440b-be92-7f3b3851aaeb"
+    },
+    {
+        "id": 5,
+        "customerName": "Allen",
+        "deliveryAddress": "Hollywood Street",
+        "contactNumber": "555-321-4567",
+        "parcelSize": "LARGE",
+        "parcelWeight": 3.0,
+        "trackingNumber": "49270329-3d9c-4729-8189-a62db8be731f"
+    }
+			]
 		},
 		{
 			"name": "http://localhost:8080/api/parcels/tracking/1d51371d-0454-464a-b61d-662bde568f0a",
@@ -75,7 +167,23 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+    "status": 200,
+    "message": "Parcel retrieved successfully",
+    "data": {
+        "id": 5,
+        "customerName": "Allen",
+        "deliveryAddress": "Hollywood Street",
+        "contactNumber": "555-321-4567",
+        "parcelSize": "LARGE",
+        "parcelWeight": 3.0,
+        "trackingNumber": "49270329-3d9c-4729-8189-a62db8be731f"
+    },
+    "path": "/api/parcels/tracking/49270329-3d9c-4729-8189-a62db8be731f",
+    "timestamp": "2025-06-08T16:21:10.8665717"
+}
+			]
 		},
 		{
 			"name": "http://localhost:8080/api/parcels/update/2",
@@ -106,7 +214,17 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+    "id": 2,
+    "customerName": "Tobey",
+    "deliveryAddress": "Gotham city",
+    "contactNumber": "+2 555-231-5674",
+    "parcelSize": "SMALL",
+    "parcelWeight": 1.5,
+    "trackingNumber": "d1967e30-0ee6-4fc1-b8ca-689b7723d7c1"
+}
+			]
 		},
 		{
 			"name": "http://localhost:8080/api/parcels/delete/1",
@@ -132,7 +250,10 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				204 No Content
+There is no content to send for this request except for headers.
+			]
 		}
 	]
 }
