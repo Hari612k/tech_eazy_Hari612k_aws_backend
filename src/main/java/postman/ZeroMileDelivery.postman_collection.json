@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "35939f2a-aeca-4983-a203-9e4b22cd8e32",
+		"name": "ZeroMileDelivery.postman_collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30853213",
+		"_collection_link": "https://zmd-api-team.postman.co/workspace/eaf0039c-3d40-4b9c-a12b-fa1c0cd214f5/collection/30853213-35939f2a-aeca-4983-a203-9e4b22cd8e32?action=share&source=collection_link&creator=30853213"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/parcels/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"customerName\": \"John\",\r\n        \"deliveryAddress\": \"123 Main St\",\r\n        \"contactNumber\": \"555-123-4567\",\r\n        \"parcelSize\": \"SMALL\",\r\n        \"parcelWeight\": 1.0\r\n    },\r\n     {\r\n        \"customerName\": \"Tobey\",\r\n        \"deliveryAddress\": \"Gotham city\",\r\n        \"contactNumber\": \"555-231-5674\",\r\n        \"parcelSize\": \"SMALL\",\r\n        \"parcelWeight\": 1.5\r\n    },\r\n     {\r\n        \"customerName\": \"Sam\",\r\n        \"deliveryAddress\": \"Churchhill Road\",\r\n        \"contactNumber\": \"555-312-6745\",\r\n        \"parcelSize\": \"MEDIUM\",\r\n        \"parcelWeight\": 2.0\r\n    },\r\n    {\r\n        \"customerName\": \"Peter\",\r\n        \"deliveryAddress\": \"Lighthouse Road\",\r\n        \"contactNumber\": \"555-132-7456\",\r\n        \"parcelSize\": \"MEDIUM\",\r\n        \"parcelWeight\": 2.5\r\n    },\r\n    {\r\n        \"customerName\": \"Allen\",\r\n        \"deliveryAddress\": \"Hollywood Street\",\r\n        \"contactNumber\": \"555-321-4567\",\r\n        \"parcelSize\": \"LARGE\",\r\n        \"parcelWeight\": 3.0\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/parcels/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/parcels/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/parcels/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/parcels/tracking/1d51371d-0454-464a-b61d-662bde568f0a",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/parcels/tracking/49270329-3d9c-4729-8189-a62db8be731f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"tracking",
+						"49270329-3d9c-4729-8189-a62db8be731f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/parcels/update/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"customerName\": \"Tobey\",\r\n        \"deliveryAddress\": \"Gotham city\",\r\n        \"contactNumber\": \"+2 555-231-5674\",\r\n        \"parcelSize\": \"SMALL\",\r\n        \"parcelWeight\": 1.5,\r\n        \"trackingNumber\": \"d1967e30-0ee6-4fc1-b8ca-689b7723d7c1\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/parcels/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/parcels/delete/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"customerName\": \"Tobey\",\r\n        \"deliveryAddress\": \"Gotham city\",\r\n        \"contactNumber\": \"+2 555-231-5674\",\r\n        \"parcelSize\": \"SMALL\",\r\n        \"parcelWeight\": 1.5,\r\n        \"trackingNumber\": \"d1967e30-0ee6-4fc1-b8ca-689b7723d7c1\"\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/parcels/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
