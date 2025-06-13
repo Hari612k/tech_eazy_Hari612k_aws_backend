@@ -52,7 +52,7 @@ This Spring Boot backend project, it handles parcel tracking, delivery order upl
 
 ##  Testing
 
-- Import `ZMD_Postman_Collection.json` &  in Postman
+- Import `ZMD_Postman_Collection.json`  in Postman
 - Use endpoints with token-based authorization
 - Test public tracking with no token
 
