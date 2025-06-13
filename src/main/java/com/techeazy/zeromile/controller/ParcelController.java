@@ -54,12 +54,19 @@ public class ParcelController {
 				.body(parcelService.createParcel(parcel));
 	}
 	
-	@PutMapping("/{id}")
+	@PostMapping("/bulk")
+	public ResponseEntity<List<Parcel>> createParcels(@RequestBody List<Parcel> parcels) {
+	    List<Parcel> savedParcels = parcelService.createParcels(parcels);
+	    return ResponseEntity.status(HttpStatus.CREATED).body(savedParcels);
+	}
+
+	
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Parcel> updateParcel(@PathVariable Long id, @RequestBody Parcel parcel){
 		return ResponseEntity.ok(parcelService.updateParcel(id, parcel));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteParcel(@PathVariable Long id){
 		parcelService.deleteParcel(id);
 		return ResponseEntity.noContent().build();
