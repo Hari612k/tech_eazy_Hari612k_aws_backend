@@ -56,6 +56,12 @@ public class ParcelService {
         return savedParcel;
     }
 
+    public List<Parcel> createParcels(List<Parcel> parcels) {
+    	logger.info("Creating an array of new parcels");
+        return parcelRepository.saveAll(parcels);
+    }
+
+    
     @Transactional
     public Parcel updateParcel(Long id, Parcel parcelDetails) {
         logger.debug("Updating parcel with ID: {}", id);

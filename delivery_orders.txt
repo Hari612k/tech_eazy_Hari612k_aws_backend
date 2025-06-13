@@ -1,0 +1,5 @@
+John,123 Main St,555-123-4567,SMALL,1.0
+Tobey,Gotham City,555-231-5674,MEDIUM,2.5
+Sam,Church Hill Road,555-312-6745,LARGE,3.0
+Peter,Lighthouse Road,555-132-7456,MEDIUM,2.0
+Allen,Hollywood Street,555-321-4567,SMALL,1.2
