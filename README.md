@@ -5,108 +5,108 @@ This is the Spring Boot backend for the Zero Mile Delivery System, built as part
 🔧 Tech Stack
 
 
-Java 21
+      Java 21
 
-Spring Boot 3.x
+      Spring Boot 3.x
 
-Spring Security (JWT-based)
+      Spring Security (JWT-based)
 
-Spring Data JPA
+      Spring Data JPA
 
-H2 in-memory DB
+      H2 in-memory DB
 
-Maven
+      Maven
 
-Lombok
+      Lombok
 
 
 
 
 ✅ Features
 
-🔐 Authentication
+      🔐 Authentication
 
-POST /auth/login – Login with JWT token
+            POST /auth/login – Login with JWT token
 
-POST /auth/register – Register user (optional)
+            POST /auth/register – Register user (optional)
 
 
 📦 Parcels – Admin Only
 
 
-POST /api/parcels/bulk – Bulk create parcels
+      POST /api/parcels/bulk – Bulk create parcels
 
-GET /api/parcels – View all parcels
+      GET /api/parcels – View all parcels
 
-GET /api/parcels/{trackingNumber} – Get parcel by tracking number
+      GET /api/parcels/{trackingNumber} – Get parcel by tracking number
 
-PUT /api/parcels/update/{id} – Update parcel
+      PUT /api/parcels/update/{id} – Update parcel
 
-DELETE /api/parcels/delete/{id} – Delete parcel
+      DELETE /api/parcels/delete/{id} – Delete parcel
 
 
 📁 Delivery Orders – Vendor/Admin
 
 
-POST /api/orders/upload – Upload delivery order .csv or .txt file
+      POST /api/orders/upload – Upload delivery order .csv or .txt file
 
-GET /api/orders – View delivery orders with optional filters
+      GET /api/orders – View delivery orders with optional filters
 
 
 🌐 Public Access – No Auth Required
 
 
-GET /public/parcels/{trackingNumber} – Track parcel without login
+      GET /public/parcels/{trackingNumber} – Track parcel without login
 
 
 📊 Admin Summary
 
-GET /api/summary/today – Get today’s parcel summary grouped by delivery address
+      GET /api/summary/today – Get today’s parcel summary grouped by delivery address
 
 
 
 👥 User Roles
 
 
-| Role          | Access Privileges                       |
-| ------------- | --------------------------------------- |
-| `ROLE_ADMIN`  | Full access to parcels, orders, summary |
-| `ROLE_VENDOR` | Upload orders and view them             |
-| Public        | Only track parcel by tracking number    |
+      | Role          | Access Privileges                       |
+      | ------------- | --------------------------------------- |
+      | `ROLE_ADMIN`  | Full access to parcels, orders, summary |
+      | `ROLE_VENDOR` | Upload orders and view them             |
+      | Public        | Only track parcel by tracking number    |
 
 
 
 🧪 Testing Guide
 
 
-✅ Use Postman with the Bearer Token set in Authorization tab
+      ✅ Use Postman with the Bearer Token set in Authorization tab
 
-✅ Import ZMD_Postman_Collection.json to simplify endpoint testing
+      ✅ Import ZMD_Postman_Collection.json to simplify endpoint testing
 
-✅ Upload delivery files in Postman:
+      ✅ Upload delivery files in Postman:
 
-POST /api/orders/upload
+            POST /api/orders/upload
 
-Use form-data
+            Use form-data
 
-Key: file, Type: File, choose a .csv or .txt file
+            Key: file, Type: File, choose a .csv or .txt file
 
-Add vendorName and orderDate (format: yyyy-MM-dd)
+            Add vendorName and orderDate (format: yyyy-MM-dd)
 
-✅ Use /public/parcels/{trackingNumber} without any token
+      ✅ Use /public/parcels/{trackingNumber} without any token
 
-✅ H2 Console: http://localhost:8080/h2-console
+      ✅ H2 Console: http://localhost:8080/h2-console
 
-      URL: jdbc:h2:mem:zeromile
-      User: sa
-      Password: [leave empty]
+            URL: jdbc:h2:mem:zeromile
+            User: sa
+            Password: [leave empty]
 
 
 🛠️ Troubleshooting Tips from Real Testing
 
-❗ 403 Forbidden – Happens if wrong role used (e.g. using Admin token for Vendor-only upload)
+      ❗ 403 Forbidden – Happens if wrong role used (e.g. using Admin token for Vendor-only upload)
 
-❗ 400 Bad Request – Happens if file part is missing or incorrect field name (file must be multipart and correct)
+      ❗ 400 Bad Request – Happens if file part is missing or incorrect field name (file must be multipart and correct)
 
 ✅ Fix: Use Postman form-data → Key: file, Type: File
 
@@ -121,7 +121,7 @@ Then link parcel rows with delivery_order_id = 1.
 
 🗓️ Summary API returns empty:
 
-GET /api/summary/today only works if order_date = current date. Manually update the date if needed.
+      GET /api/summary/today only works if order_date = current date. Manually update the date if needed.
 
 ✅ After adding valid delivery orders and parcels:
 
