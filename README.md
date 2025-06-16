@@ -1,7 +1,9 @@
 🚚 Zero Mile Delivery System – Backend
+
 This is the Spring Boot backend for the Zero Mile Delivery System, built as part of the AWS Internship Project. It manages parcel tracking, delivery order uploads, JWT-based authentication, and RBAC for Admin & Vendor roles.
 
 🔧 Tech Stack
+
 
 Java 21
 
@@ -28,7 +30,9 @@ POST /auth/login – Login with JWT token
 
 POST /auth/register – Register user (optional)
 
+
 📦 Parcels – Admin Only
+
 
 POST /api/parcels/bulk – Bulk create parcels
 
@@ -40,21 +44,29 @@ PUT /api/parcels/update/{id} – Update parcel
 
 DELETE /api/parcels/delete/{id} – Delete parcel
 
+
 📁 Delivery Orders – Vendor/Admin
+
 
 POST /api/orders/upload – Upload delivery order .csv or .txt file
 
 GET /api/orders – View delivery orders with optional filters
 
+
 🌐 Public Access – No Auth Required
+
 
 GET /public/parcels/{trackingNumber} – Track parcel without login
 
+
 📊 Admin Summary
+
 GET /api/summary/today – Get today’s parcel summary grouped by delivery address
 
 
+
 👥 User Roles
+
 
 | Role          | Access Privileges                       |
 | ------------- | --------------------------------------- |
@@ -63,7 +75,9 @@ GET /api/summary/today – Get today’s parcel summary grouped by delivery addr
 | Public        | Only track parcel by tracking number    |
 
 
+
 🧪 Testing Guide
+
 
 ✅ Use Postman with the Bearer Token set in Authorization tab
 
@@ -89,6 +103,7 @@ Add vendorName and orderDate (format: yyyy-MM-dd)
 
 
 🛠️ Troubleshooting Tips from Real Testing
+
 ❗ 403 Forbidden – Happens if wrong role used (e.g. using Admin token for Vendor-only upload)
 
 ❗ 400 Bad Request – Happens if file part is missing or incorrect field name (file must be multipart and correct)
@@ -96,12 +111,13 @@ Add vendorName and orderDate (format: yyyy-MM-dd)
 ✅ Fix: Use Postman form-data → Key: file, Type: File
 
 🧪 File Upload Alternative:
+
 If facing upload issues, manually insert a delivery_order row via H2 Console with:
 
       INSERT INTO delivery_order (order_date, file_link, vendor_id)
       VALUES ('2025-06-16', 'uploads/sample.csv', 1);
 
-      Then link parcel rows with delivery_order_id = 1.
+Then link parcel rows with delivery_order_id = 1.
 
 🗓️ Summary API returns empty:
 
