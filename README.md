@@ -60,6 +60,8 @@ This Spring Boot backend project, it handles parcel tracking, delivery order upl
 
 1. Clone and open in your IDE (Eclipse/IntelliJ)
 2. Run `ZeroMileDeliveryApplication.java`
-3. Open: `http://localhost:8080/h2-console`
+
+      right click on project Run As Spring boot app or Run As Maven Build goals: mvn spring-boot:run click on run button
+4. Open: `http://localhost:8080/h2-console`
    - URL: `jdbc:h2:mem:zeromile`
    - User: `sa`, Password: *(leave empty)*
