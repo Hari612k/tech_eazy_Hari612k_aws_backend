@@ -1,67 +1,126 @@
-# Zero Mile Delivery System – Backend
+🚚 Zero Mile Delivery System – Backend
+This is the Spring Boot backend for the Zero Mile Delivery System, built as part of the AWS Internship Project. It manages parcel tracking, delivery order uploads, JWT-based authentication, and RBAC for Admin & Vendor roles.
 
-This Spring Boot backend project, it handles parcel tracking, delivery order uploads, user authentication (JWT), and role-based access control (RBAC).
+🔧 Tech Stack
 
-##  Tech Stack
+Java 21
 
-- Java 21
-- Spring Boot 3.x
-- Spring Security + JWT
-- Spring Data JPA
-- H2 in-memory DB
-- Lombok
-- Maven
+Spring Boot 3.x
 
+Spring Security (JWT-based)
 
-##  Features
+Spring Data JPA
 
-### Authentication
+H2 in-memory DB
 
-- `POST /auth/login` – Login and receive a JWT
-- `POST /auth/register` – Register a new user (optional)
+Maven
 
-### Parcels (Admin only)
-
-- `POST /api/parcels` – Create a parcel
-- `POST /api/parcels/bulk` – Bulk upload parcels
-- `GET /api/parcels` – View all parcels
-- `GET /api/parcels/{trackingNumber}` – View parcel by tracking ID
-- `PUT /api/parcels/update/{id}` – Update a parcel
-- `DELETE /api/parcels/delete/{id}` – Delete a parcel
-
-### Delivery Orders (Vendor/Admin)
-
-- `POST /api/orders/upload` – Upload order file (Admin/Vendor)
-- `GET /api/orders` – View paginated and filtered orders (Admin/Vendor)
-
-### Public Access
-
-- `GET /public/parcels/{trackingNumber}` – Track parcel without login
-
-### Admin Summary
-
-- `GET /api/summary/today` – View today’s parcel summary by delivery address
+Lombok
 
 
 
-##  User Roles
 
-- `ROLE_ADMIN`: All access
-- `ROLE_VENDOR`: Upload orders, view orders
-- Public: Track parcel only
+✅ Features
 
-##  Testing
+🔐 Authentication
 
-- Import `ZMD_Postman_Collection.json`  in Postman
-- Use endpoints with token-based authorization
-- Test public tracking with no token
+POST /auth/login – Login with JWT token
 
-##  Run the Project
+POST /auth/register – Register user (optional)
 
-1. Clone and open in your IDE (Eclipse/IntelliJ)
-2. Run `ZeroMileDeliveryApplication.java`
+📦 Parcels – Admin Only
 
-      right click on project Run As Spring boot app or Run As Maven Build goals: mvn spring-boot:run click on run button
-4. Open: `http://localhost:8080/h2-console`
-   - URL: `jdbc:h2:mem:zeromile`
-   - User: `sa`, Password: *(leave empty)*
+POST /api/parcels/bulk – Bulk create parcels
+
+GET /api/parcels – View all parcels
+
+GET /api/parcels/{trackingNumber} – Get parcel by tracking number
+
+PUT /api/parcels/update/{id} – Update parcel
+
+DELETE /api/parcels/delete/{id} – Delete parcel
+
+📁 Delivery Orders – Vendor/Admin
+
+POST /api/orders/upload – Upload delivery order .csv or .txt file
+
+GET /api/orders – View delivery orders with optional filters
+
+🌐 Public Access – No Auth Required
+
+GET /public/parcels/{trackingNumber} – Track parcel without login
+
+📊 Admin Summary
+GET /api/summary/today – Get today’s parcel summary grouped by delivery address
+
+
+👥 User Roles
+
+| Role          | Access Privileges                       |
+| ------------- | --------------------------------------- |
+| `ROLE_ADMIN`  | Full access to parcels, orders, summary |
+| `ROLE_VENDOR` | Upload orders and view them             |
+| Public        | Only track parcel by tracking number    |
+
+
+🧪 Testing Guide
+
+✅ Use Postman with the Bearer Token set in Authorization tab
+
+✅ Import ZMD_Postman_Collection.json to simplify endpoint testing
+
+✅ Upload delivery files in Postman:
+
+POST /api/orders/upload
+
+Use form-data
+
+Key: file, Type: File, choose a .csv or .txt file
+
+Add vendorName and orderDate (format: yyyy-MM-dd)
+
+✅ Use /public/parcels/{trackingNumber} without any token
+
+✅ H2 Console: http://localhost:8080/h2-console
+
+      URL: jdbc:h2:mem:zeromile
+      User: sa
+      Password: [leave empty]
+
+
+🛠️ Troubleshooting Tips from Real Testing
+❗ 403 Forbidden – Happens if wrong role used (e.g. using Admin token for Vendor-only upload)
+
+❗ 400 Bad Request – Happens if file part is missing or incorrect field name (file must be multipart and correct)
+
+✅ Fix: Use Postman form-data → Key: file, Type: File
+
+🧪 File Upload Alternative:
+If facing upload issues, manually insert a delivery_order row via H2 Console with:
+
+      INSERT INTO delivery_order (order_date, file_link, vendor_id)
+      VALUES ('2025-06-16', 'uploads/sample.csv', 1);
+
+      Then link parcel rows with delivery_order_id = 1.
+
+🗓️ Summary API returns empty:
+
+GET /api/summary/today only works if order_date = current date. Manually update the date if needed.
+
+✅ After adding valid delivery orders and parcels:
+
+      SELECT * FROM delivery_order;
+      SELECT * FROM parcel WHERE delivery_order_id = 1;
+
+
+
+▶️ Run the Project
+
+1. Clone the project
+      git clone https://github.com/Hari612k/tech_eazy_Hari612k_aws_backend.git
+
+2. Open in your IDE (Eclipse/IntelliJ)
+
+3. Run: ZeroMileDeliveryApplication.java
+
+      Right-click → Run As → Spring Boot App
