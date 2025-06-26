@@ -1,10 +1,7 @@
 {
 	"info": {
-		"_postman_id": "f3453f93-9cb9-4d08-9c76-82a8d0b333d4",
 		"name": "AWS-ZMD.postman_collection.json",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30853213",
-		"_collection_link": "https://zmd-api-team.postman.co/workspace/zero-mile-delivery~eaf0039c-3d40-4b9c-a12b-fa1c0cd214f5/collection/30853213-f3453f93-9cb9-4d08-9c76-82a8d0b333d4?action=share&source=collection_link&creator=30853213"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
