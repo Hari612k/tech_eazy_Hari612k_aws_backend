@@ -1,0 +1,1 @@
+{"status":200,"message":"Parcel retrieved successfully","data":{"id":4,"customerName":"Peter","deliveryAddress":"Lighthouse Road","contactNumber":"555-132-7456","parcelSize":"MEDIUM","parcelWeight":2.5,"trackingNumber":"TRACK123454","deliveryOrder":null},"path":"/api/parcels/TRACK123454","timestamp":"2025-06-26T06:53:21.813335022"}
